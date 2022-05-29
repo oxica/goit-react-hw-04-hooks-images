@@ -38,18 +38,6 @@ export default function App() {
             toast.error('Did find anything, mate');
           }
           return pictures;
-          // const selectedProperties = pictures.hits.map(
-          //   ({ id, largeImageURL, webformatURL }) => {
-          //     return { id, largeImageURL, webformatURL };
-          //   }
-          // );
-          // this.setState(prevState => {
-          //   return {
-          //     pictures: [...prevState.pictures, ...selectedProperties],
-          //     status: 'resolved',
-          //     totalHits: pictures.total,
-          //   };
-          // });
         })
         .catch(error => {
           setStatus('rejected');
