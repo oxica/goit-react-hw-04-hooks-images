@@ -17,6 +17,7 @@ export default function App() {
   const [status, setStatus] = useState('idle');
   const [query, setQuery] = useState('');
   const [totalHits, setTotalHits] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (query === '') {
@@ -39,9 +40,7 @@ export default function App() {
           }
           return pictures;
         })
-        .catch(error => {
-          setStatus('rejected');
-        });
+        .catch(error => setError(error) && setStatus('rejected'));
     };
     fetchImg().then(pictures => {
       const selectedProperties = pictures.hits.map(
@@ -71,6 +70,7 @@ export default function App() {
       {pictures.length && <ImageGallery images={pictures} />}
       {totalHits > pictures.length && <Button onClick={handleLoadMore} />}
       {status === 'pending' && <Loader />}
+      {status === 'rejected' && { error }}
       <ToastContainer autoClose={2000} />
     </>
   );
