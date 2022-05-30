@@ -8,7 +8,7 @@ import ImageGallery from './ImageGallery/ImageGallery';
 import Loader from './Loader/Loader';
 import Button from './Button/Button';
 
-const API_KEY = '25705868-b120ad61381773d51dfa3e39d';
+const API_KEY = '25766392-01b12b6ed5ab34bc2910d9c3e';
 const URL = 'https://pixabay.com/api/';
 
 export default function App() {
